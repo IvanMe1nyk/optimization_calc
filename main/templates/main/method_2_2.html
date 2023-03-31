@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mt-5 mb-4">Form</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="function" class="form-label">Функція:</label>
+        {{ form.func }}
+        <p>Для позначення невідомих використовуйте "x[n]", де n-це порядковий номер змінної поченаючи з 0</p>
+        <p>Для використання степеня введіть подвійний знак множення, також можна використовувати функції sin, cos, tan, а також число Pi та e</p>
+        <p>Для введення координат, вводіть їх по черзі, розмежовуючи комою та пропуском тобто так:", "</p>
+        <p>Для розмежування точок використовуйте потрійний пропуск тобто так " . . "(для прикладу між пропусками поставлено крапки, при вводі їх використовувати не потрібно)</p>
+      </div>
+      <div class="mb-3">
+        <label for="x_vershyny" class="form-label">Початкові координати точок многогранника:</label>
+        {{ form.x_vershyny }}
+      </div>
+      <div class="mb-3">
+        <label for="n" class="form-label">Кількість змінних:</label>
+        {{ form.n }}
+      </div>
+      <div class="mb-3">
+        <label for="alpha" class="form-label">Alpha:</label>
+        {{ form.alpha }}
+      </div>
+      <div class="mb-3">
+        <label for="beta" class="form-label">Beta:</label>
+        {{ form.beta }}
+      </div>
+      <div class="mb-3">
+        <label for="hamma" class="form-label">Hamma:</label>
+        {{ form.hamma }}
+      </div>
+      <div class="mb-3">
+        <label for="exp" class="form-label">Похибка:</label>
+        {{ form.exp }}
+      </div>
+      <div class="mb-3">
+        <label for="dir" class="form-label">Напрямок оптимізації:</label>
+        {{ form.dir }}
+      </div>
+      <button type="submit" class="btn btn-success">Обчислити</button>
+    </form>
+    <div class="mt-5">
+        {% for i in acc %}
+            <p>{{i}}</p>
+        {%endfor%}
+</body>
+</html>
