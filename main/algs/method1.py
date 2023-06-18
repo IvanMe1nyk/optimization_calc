@@ -52,6 +52,10 @@ sin=math.sin
 cos=math.cos
 tan=math.tan
 Pi=math.pi
+e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 
 
 def alg(x_start,f,delta,alpha,e,landa,dir):

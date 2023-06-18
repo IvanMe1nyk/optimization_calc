@@ -93,7 +93,7 @@ def met_fib(request):
             f=form.cleaned_data['func']
             a=float(form.cleaned_data['left'])
             b=float(form.cleaned_data['right'])
-            exp=float(form.cleaned_data['exp'])
+            exp=int(form.cleaned_data['exp'])
             dir=form.cleaned_data['dir']
             acc=alg_fib(a,b,exp,f,dir)
             context={'acc':acc}

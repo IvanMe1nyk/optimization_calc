@@ -34,6 +34,9 @@ cos=math.cos
 tan=math.tan
 Pi=math.pi
 e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 
 
 
@@ -62,6 +65,6 @@ def alg(a,b,exp,f,dir):
             acc.append(acc_temp)
     acc_temp="Новий інтервал невизначеності матиме такий вигляд: ("+str(a)+", "+str(b)+")"
     acc.append(acc_temp)
-    acc_temp="Оптимальної точкою буде середина інтервалу x="+str((b-a)/2)+", та значення функції в цій точці f(x)="+str(func((b-a)/2,f))
+    acc_temp="Оптимальної точкою буде середина інтервалу x="+str((b+a)/2)+", та значення функції в цій точці f(x)="+str(func((b+a)/2,f))
     acc.append(acc_temp)
     return acc

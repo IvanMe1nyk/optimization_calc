@@ -99,6 +99,10 @@ sin=math.sin
 cos=math.cos
 tan=math.tan
 Pi=math.pi
+e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 
 
 def alg(x_vershyny,f,e,alpha,beta,hamma,n,dir):

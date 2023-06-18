@@ -81,6 +81,10 @@ sin=math.sin
 cos=math.cos
 tan=math.tan
 Pi=math.pi
+e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 '''
 dir="min"
 f="4*(x[0]-5)**2+(x[1]-6)**2+(x[2]-7)**2+(x[3]-8)**2"
@@ -98,19 +102,19 @@ def alg(x_old,f,n,e,dir):
     iterator=0
     for i in range(n+1):
         p.append([])
-        y.append([])
         for j in range(n):
             if i-1==j:
                 p[i].append(1)
             else:
                 p[i].append(0)
     p[0]=p[n]
-    y[0]=x_old
+    y.append(x_old)
     acc_temp="Обчислимо значання для y(0)="+str(y[0])
     acc.append(acc_temp)
     lim=0
     while lim<500:
-        y[iterator+1]=Poshuk(y[iterator],p[iterator],e,f,dir)
+        temp=Poshuk(y[iterator],p[iterator],e,f,dir)
+        y.append(temp)
         acc_temp="Обчислимо значання для y("+str(iterator+1)+")="+str(y[iterator+1])
         acc.append(acc_temp)
         acc_temp="Перевіряємо умови завершення обчислень:"
@@ -144,6 +148,8 @@ def alg(x_old,f,n,e,dir):
                 acc_temp="Оскільки y[n+1] не дорвнює y[1], проводимо додаткові перевірки:"
                 acc.append(acc_temp)
                 x_new=y[n+1]
+                y.clear()
+                y.append(x_new)
                 if Test(x_new,x_old)<e:
                     acc_temp="Умова похибки виконана, новою оптимальною токою стає y[n+1],алгоритм завершується"
                     acc.append(acc_temp)

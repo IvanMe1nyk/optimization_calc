@@ -54,21 +54,11 @@ sin=math.sin
 cos=math.cos
 tan=math.tan
 Pi=math.pi
-'''
-dir="min"
-f="2*x[0]**2+x[0]*x[1]+x[1]**2"
-n=4
-x=list()
-x_old='0.5,1'
-y=list()
-z=list()
-alpha=1
-beta=0.5
-M=300
-N=100
-t=1
-R=0.001
-'''
+e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
+
 def alg(x_old,f,n,alpha,beta,M,N,t,R,dir):
     x_old=StrInLis(x_old)
     k=0
@@ -96,7 +86,7 @@ def alg(x_old,f,n,alpha,beta,M,N,t,R,dir):
             acc_temp="Оскільки нове значення оптимальніше, ніж старе, обчислимо нове значення для z: "+str(z)
             acc.append(acc_temp)
             f_z=eval(f)
-            if Direc(f_z,f_x,dir)==True:
+            if Direc(f_z,f_y,dir)==True:
                 t=t*alpha
                 k=k+1
                 x_old=x

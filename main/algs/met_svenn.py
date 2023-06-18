@@ -22,6 +22,9 @@ cos=math.cos
 tan=math.tan
 Pi=math.pi
 e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 
 def alg(x,exp,f,dir):
     acc=list()
@@ -32,38 +35,22 @@ def alg(x,exp,f,dir):
     i=0
     acc_temp="Перевіряємо зміну значення функції в залежності від кроку та проводимо першу зміну межі:"
     acc.append(acc_temp)
-    if dir=="min":
-        if func(x0-exp,f)<=func(x0,f)<=func(x0+exp,f):
-            exp=exp*(-1)
-            lim[1]=x
-            acc_temp="Виконується умова: f(x-k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
-        elif func(x0-exp,f)>=func(x0,f)>=func(x0+exp,f):
-            exp=abs(exp)
-            lim[0]=x
-            acc_temp="Виконується рівність: f(x+k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x-k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
-        else:
-            lim[0]=x0-exp
-            lim[1]=x0+exp
-            acc_temp="Виконується умова: f(x) оптимальніша ніж f(x-k) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
-    if dir=="max":
-        if func(x0-exp,f)>=func(x0,f)>=func(x0+exp,f):
-            exp=exp*(-1)
-            lim[1]=x
-            acc_temp="Виконується умова: f(x-k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
-        elif func(x0-exp,f)<=func(x0,f)<=func(x0+exp,f):
-            exp=abs(exp)
-            lim[0]=x
-            acc_temp="Виконується рівність: f(x+k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x-k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
-        else:
-            lim[0]=x0-exp
-            lim[1]=x0+exp
-            acc_temp="Виконується умова: f(x) оптимальніша ніж f(x-k) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
-            acc.append(acc_temp)
+
+    if func(x0-exp,f)<=func(x0,f)<=func(x0+exp,f):
+        exp=exp*(-1)
+        lim[1]=x
+        acc_temp="Виконується умова: f(x-k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
+        acc.append(acc_temp)
+    elif func(x0-exp,f)>=func(x0,f)>=func(x0+exp,f):
+        exp=abs(exp)
+        lim[0]=x
+        acc_temp="Виконується рівність: f(x+k) оптимальніша ніж f(x) та f(x) оптимальніша ніж f(x-k), нові межі матимуть такий вигляд: "+str(lim)
+        acc.append(acc_temp)
+    else:
+        lim[0]=x0-exp
+        lim[1]=x0+exp
+        acc_temp="Виконується умова: f(x) оптимальніша ніж f(x-k) та f(x) оптимальніша ніж f(x+k), нові межі матимуть такий вигляд: "+str(lim)
+        acc.append(acc_temp)
     acc_temp="За умови що одна межа невизначена починаємо цикл для знаходження іншої межі, в іншому випадку цикл завершено"
     acc.append(acc_temp)
     while (type(lim[0])==str) or (type(lim[1])==str):
@@ -74,7 +61,7 @@ def alg(x,exp,f,dir):
         acc.append(acc_temp)
         if exp>0:
             if Direc(func(x1,f),func(x0,f),dir)==True:
-                lim[0]=x0
+                lim[0]=x1
                 acc_temp="Виконується умова: f(x_new) оптимальніша ніж f(x) нові межі матимуть такий вигляд: "+str(lim)
                 acc.append(acc_temp)
             else:
@@ -83,7 +70,7 @@ def alg(x,exp,f,dir):
                 acc.append(acc_temp)
         else:
             if Direc(func(x1,f),func(x0,f),dir)==True:
-                lim[1]=x0
+                lim[1]=x1
                 acc_temp="Виконується умова: f(x_new) оптимальніша ніж f(x) нові межі матимуть такий вигляд: "+str(lim)
                 acc.append(acc_temp)
             else:

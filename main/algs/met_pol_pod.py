@@ -17,6 +17,9 @@ cos=math.cos
 tan=math.tan
 Pi=math.pi
 e=math.e
+exp=math.exp
+sqrt=math.sqrt
+pow=math.pow
 
 def alg(a,b,exp,f,dir):
     acc=list()
